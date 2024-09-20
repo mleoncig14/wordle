@@ -1,0 +1,26 @@
+<!-- select_language.html -->
+{% extends "base.html" %}
+{% block title %}Select Language{% endblock %}
+{% block content %}
+<h1>Choose a Language</h1>
+<form id="languageForm" action="{% url 'goldenGuess:start_game' %}" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="language" id="languageInput">
+    <div>
+        <button type="button" onclick="setLanguage('english')">English</button>
+        <button type="button" onclick="setLanguage('spanish')">Spanish</button>
+        <button type="button" onclick="setLanguage('french')">French</button>
+        <button type="button" onclick="setLanguage('portuguese')">Portuguese</button>
+        <button type="button" onclick="setLanguage('german')">German</button>
+    </div>
+</form>
+
+<script>
+    function setLanguage(language) {
+        sessionStorage.setItem('language', language);
+        document.getElementById('languageInput').value = language;
+        document.getElementById('languageForm').submit()
+    }
+</script>
+
+{% endblock %}

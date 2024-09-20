@@ -1,0 +1,12 @@
+<!-- select_language.html -->
+{% extends "base.html" %}
+{% block title %}Game Over{% endblock %}
+{% block content %}
+<h1>Game Has Ended!</h1>
+<form method="post" action="{% url 'goldenGuess:handle_actions' %}">
+    {% csrf_token %}
+    <button type="submit" name="action" value="new_game">NEW GAME</button>
+    <button type="submit" name="action" value="purchase_coins">Purchase Krato Coins</button>
+</form>
+
+{% endblock %}

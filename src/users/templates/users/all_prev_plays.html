@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Previous Plays{% endblock %}
+
+{% block content %}
+<!-- Game Date: when the game was played
+Pass/Fail: indicating whether the user was able to correctly guess or not the word
+Number of Attempts: how many attempts the player took. -->
+
+{% if all_prev_plays %}
+<ul>
+{% for question in all_prev_plays %}
+    <li>
+      <div class="user-info">
+        <p>Game Date:{{ user.game_date}}</p>
+        <p>Pass/Faill: {{ user.pass_fail }}</p>
+        <p>Number of Attempts: {{ user.number_of_attempts }}</p>
+      </div>
+      <br></br>
+      </div>
+    </li>
+{% endfor %}
+</ul>
+{% else %}
+    <p>No Data is available.</p>
+{% endif %}
+
+
+
+
+
+{% endblock %}

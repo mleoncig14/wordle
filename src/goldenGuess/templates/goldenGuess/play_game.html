@@ -1,0 +1,64 @@
+<!-- templates/play_game.html -->
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}Golden Guess{% endblock %}
+{% block content %}
+<div class="game-container">
+    <div class="game-board">
+        <div class="guess-row active" id="row1">
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+        </div>
+        <div class="guess-row" id="row2">
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+        </div>
+        <div class="guess-row" id="row3">
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+        </div>
+        <div class="guess-row" id="row4">
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+        </div>
+        <div class="guess-row" id="row5">
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+        </div>
+        <div class="guess-row" id="row6">
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+            <div class="letter-box"></div>
+        </div>
+        {% include keyboard %} 
+    </div>
+    
+    <div class="info-panel">
+            <p>For special characters not on your keyboard, please use the on-screen keyboard.</p>
+    </div>
+</div>
+
+    
+    <script src="{% static 'js/wordle.js' %}"></script>
+{% endblock %}
+
+

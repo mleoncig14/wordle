@@ -1,0 +1,56 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/retro_style.css' %}">
+    <style>
+        .hidden { display: none; }
+    </style>
+    {% block stylesheet %}
+        <!-- If you have other stylesheets, link them here -->
+    {% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <header>
+        <div class="welcome-message">Welcome to GoldenGuess</div>
+        <!-- Other header content -->
+    </header>
+
+    <nav id="sidebar">
+        <ul>
+            {% if user.is_authenticated %}
+                <li>
+                    <form action="{% url 'logout' %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">{% trans "Logout" %}</button>
+                    </form>
+                </li>
+                <li><a href="{% url 'profile' %}" class="button">{% trans "Profile" %}</a></li>
+                <li><a href="{% url 'goldenGuess:start_game' %}" class="button">GoldenGuess</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    <button id="sidebarToggle" onclick="toggleSidebar()">Menu</button>
+
+    <main>
+        {% block content %}
+        <!-- Main content that will be overridden by other templates -->
+        {% endblock %}
+        
+    </main>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+
+    {% block script %}
+        <!-- If you have scripts, include them here -->
+        <script src="{% static 'js/nav_bar.js' %}"></script>
+    {% endblock %}
+</body>
+</html>
